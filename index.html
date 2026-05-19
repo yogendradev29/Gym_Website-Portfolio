@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>360 Degree Fitness Club | Premium Gym in Kanakpura, Jhotwara</title>
+    <meta
+      name="description"
+      content="360 Degree Fitness Club in Kanakpura, Jhotwara, Jaipur. Premium strength training, hypertrophy programs, cardio, and customized nutrition guidance."
+    />
+    <meta name="theme-color" content="#121212" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              iron: "#121212",
+              plate: "#1E1E1E",
+              volt: "#39FF14",
+              shock: "#18B7FF",
+            },
+            fontFamily: {
+              display: ["Bebas Neue", "Montserrat", "sans-serif"],
+              sans: ["Inter", "Montserrat", "sans-serif"],
+            },
+            boxShadow: {
+              neon: "0 0 28px rgba(57, 255, 20, 0.34)",
+              blueglow: "0 0 30px rgba(24, 183, 255, 0.24)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        --header-height: 72px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #121212;
+        color: #f5f7f2;
+        font-family: Inter, Montserrat, system-ui, sans-serif;
+        overflow-x: hidden;
+      }
+
+      section {
+        scroll-margin-top: calc(var(--header-height) + 18px);
+      }
+
+      .headline {
+        font-family: "Bebas Neue", Montserrat, sans-serif;
+        letter-spacing: 0;
+      }
+
+      .glass-nav {
+        background: rgba(18, 18, 18, 0.78);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(18px);
+      }
+
+      .hero-bg {
+        background-image:
+          linear-gradient(90deg, rgba(18, 18, 18, 0.98) 0%, rgba(18, 18, 18, 0.78) 48%, rgba(18, 18, 18, 0.3) 100%),
+          linear-gradient(180deg, rgba(18, 18, 18, 0.18) 0%, #121212 100%),
+          url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2200&q=86");
+        background-position: center;
+        background-size: cover;
+      }
+
+      .grid-texture {
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 80%, transparent);
+      }
+
+      .volt-button,
+      .dark-button,
+      .feature-card,
+      .price-card,
+      .gallery-tile {
+        transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      }
+
+      .volt-button:hover,
+      .dark-button:hover {
+        transform: translateY(-2px);
+      }
+
+      .volt-button:hover {
+        box-shadow: 0 0 30px rgba(57, 255, 20, 0.48);
+      }
+
+      .feature-card:hover,
+      .price-card:hover,
+      .gallery-tile:hover {
+        transform: translateY(-6px);
+        border-color: rgba(57, 255, 20, 0.62);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38), 0 0 24px rgba(57, 255, 20, 0.16);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 650ms ease, transform 650ms ease;
+      }
+
+      .reveal.in-view {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .active-link {
+        color: #39ff14;
+      }
+
+      .bmi-panel {
+        background:
+          radial-gradient(circle at top right, rgba(57, 255, 20, 0.12), transparent 32%),
+          linear-gradient(135deg, #181818, #0e0e0e);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .reveal,
+        .volt-button,
+        .dark-button,
+        .feature-card,
+        .price-card,
+        .gallery-tile {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-iron text-white antialiased">
+    <header class="glass-nav fixed inset-x-0 top-0 z-50" data-header>
+      <div class="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <a href="#home" class="flex items-center gap-3" aria-label="360 Degree Fitness Club home">
+          <span class="grid h-11 w-11 place-items-center rounded-md bg-volt text-lg font-black text-iron shadow-neon">360</span>
+          <span class="leading-none">
+            <span class="block font-display text-2xl text-white">Degree Fitness</span>
+            <span class="block text-[11px] font-bold uppercase tracking-[0.22em] text-zinc-400">Club Jaipur</span>
+          </span>
+        </a>
+
+        <nav class="hidden items-center gap-7 text-sm font-bold uppercase text-zinc-300 lg:flex" aria-label="Primary navigation">
+          <a class="nav-link hover:text-volt" href="#programs">Programs</a>
+          <a class="nav-link hover:text-volt" href="#bmi">BMI</a>
+          <a class="nav-link hover:text-volt" href="#gallery">Gallery</a>
+          <a class="nav-link hover:text-volt" href="#pricing">Pricing</a>
+          <a class="nav-link hover:text-volt" href="#contact">Contact</a>
+        </nav>
+
+        <div class="hidden items-center gap-3 lg:flex">
+          <a
+            href="https://api.whatsapp.com/send?phone=919876543210&text=Hi%20360%20Degree%20Fitness%2C%20I%20want%20to%20join%20the%20gym.%20Please%20share%20membership%20details.&type=phone_number&app_absent=0"
+            target="_blank"
+            rel="noreferrer"
+            data-whatsapp
+            data-message="Hi 360 Degree Fitness, I want to join the gym. Please share membership details."
+            class="volt-button rounded-md bg-volt px-5 py-3 text-sm font-black uppercase text-iron"
+          >
+            Join Now
+          </a>
+        </div>
+
+        <button
+          class="grid h-11 w-11 place-items-center rounded-md border border-white/15 bg-white/5 lg:hidden"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          data-menu-button
+        >
+          <span class="relative h-4 w-5" aria-hidden="true">
+            <span class="absolute left-0 top-0 h-0.5 w-5 bg-white transition-transform" data-menu-line></span>
+            <span class="absolute bottom-0 left-0 h-0.5 w-5 bg-white transition-transform" data-menu-line></span>
+          </span>
+        </button>
+      </div>
+
+      <nav class="hidden border-t border-white/10 bg-iron/96 px-4 py-4 lg:hidden" data-mobile-menu aria-label="Mobile navigation">
+        <div class="mx-auto grid max-w-7xl gap-2 text-sm font-black uppercase text-zinc-200">
+          <a class="rounded-md px-3 py-3 hover:bg-white/5 hover:text-volt" href="#programs">Programs</a>
+          <a class="rounded-md px-3 py-3 hover:bg-white/5 hover:text-volt" href="#bmi">BMI Calculator</a>
+          <a class="rounded-md px-3 py-3 hover:bg-white/5 hover:text-volt" href="#gallery">Trainers & Gallery</a>
+          <a class="rounded-md px-3 py-3 hover:bg-white/5 hover:text-volt" href="#pricing">Pricing</a>
+          <a class="rounded-md px-3 py-3 hover:bg-white/5 hover:text-volt" href="#contact">Contact</a>
+          <a
+            href="https://api.whatsapp.com/send?phone=919876543210&text=Hi%20360%20Degree%20Fitness%2C%20I%20want%20to%20claim%20my%201-Day%20Free%20Trial%21&type=phone_number&app_absent=0"
+            target="_blank"
+            rel="noreferrer"
+            data-whatsapp
+            data-message="Hi 360 Degree Fitness, I want to claim my 1-Day Free Trial!"
+            class="volt-button mt-2 rounded-md bg-volt px-4 py-3 text-center font-black uppercase text-iron"
+          >
+            Claim Free Trial
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero-bg relative isolate flex min-h-[92svh] items-end overflow-hidden px-4 pb-10 pt-28 sm:px-6 lg:px-8">
+        <div class="grid-texture absolute inset-0 -z-10"></div>
+        <div class="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-[1fr_360px] lg:items-end">
+          <div class="max-w-4xl">
+            <p class="reveal mb-4 inline-flex rounded-md border border-volt/40 bg-volt/10 px-3 py-2 text-xs font-black uppercase tracking-[0.22em] text-volt">
+              Kanakpura, Jhotwara, Jaipur
+            </p>
+            <h1 class="reveal headline text-[4.7rem] leading-[0.82] text-white sm:text-[6.5rem] md:text-[8rem] lg:text-[9.5rem]">
+              Transform Your Body at Kanakpura's Premier Fitness Hub
+            </h1>
+            <p class="reveal mt-5 max-w-2xl text-base font-medium leading-7 text-zinc-300 sm:text-lg">
+              Build shredded lean muscle, improve raw strength, and train with focused coaching that turns daily effort into visible change.
+            </p>
+            <div class="reveal mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="https://api.whatsapp.com/send?phone=919876543210&text=Hi%20360%20Degree%20Fitness%2C%20I%20want%20to%20claim%20my%201-Day%20Free%20Trial%21&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noreferrer"
+                data-whatsapp
+                data-message="Hi 360 Degree Fitness, I want to claim my 1-Day Free Trial!"
+                class="volt-button inline-flex items-center justify-center rounded-md bg-volt px-6 py-4 text-sm font-black uppercase text-iron"
+              >
+                Claim 1-Day Free Trial
+              </a>
+              <a
+                href="#programs"
+                class="dark-button inline-flex items-center justify-center rounded-md border border-white/15 bg-white/8 px-6 py-4 text-sm font-black uppercase text-white hover:border-shock/70 hover:shadow-blueglow"
+              >
+                Explore Programs
+              </a>
+            </div>
+          </div>
+
+          <aside class="reveal rounded-lg border border-white/12 bg-black/42 p-5 shadow-2xl backdrop-blur-md">
+            <p class="text-xs font-black uppercase tracking-[0.22em] text-zinc-400">Today's Focus</p>
+            <div class="mt-4 grid grid-cols-3 gap-3">
+              <div class="rounded-md bg-white/8 p-3">
+                <strong class="block font-display text-3xl text-volt">5AM</strong>
+                <span class="text-xs font-semibold text-zinc-400">Opens</span>
+              </div>
+              <div class="rounded-md bg-white/8 p-3">
+                <strong class="block font-display text-3xl text-shock">7</strong>
+                <span class="text-xs font-semibold text-zinc-400">Days</span>
+              </div>
+              <div class="rounded-md bg-white/8 p-3">
+                <strong class="block font-display text-3xl text-white">360</strong>
+                <span class="text-xs font-semibold text-zinc-400">Method</span>
+              </div>
+            </div>
+            <p class="mt-5 text-sm leading-6 text-zinc-300">
+              Strength floor, hypertrophy coaching, cardio conditioning, and nutrition habits built for Jaipur lifestyles.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="border-y border-white/10 bg-plate px-4 py-5 sm:px-6 lg:px-8">
+        <div class="mx-auto grid max-w-7xl grid-cols-2 gap-3 text-center sm:grid-cols-4">
+          <div class="reveal rounded-md bg-black/25 px-3 py-5">
+            <strong class="font-display text-4xl text-volt" data-count="360">0</strong>
+            <span class="block text-xs font-bold uppercase text-zinc-400">Degree Fitness</span>
+          </div>
+          <div class="reveal rounded-md bg-black/25 px-3 py-5">
+            <strong class="font-display text-4xl text-white" data-count="3">0</strong>
+            <span class="block text-xs font-bold uppercase text-zinc-400">Core Programs</span>
+          </div>
+          <div class="reveal rounded-md bg-black/25 px-3 py-5">
+            <strong class="font-display text-4xl text-shock" data-count="7">0</strong>
+            <span class="block text-xs font-bold uppercase text-zinc-400">Days Open</span>
+          </div>
+          <div class="reveal rounded-md bg-black/25 px-3 py-5">
+            <strong class="font-display text-4xl text-volt" data-count="1">0</strong>
+            <span class="block text-xs font-bold uppercase text-zinc-400">Free Trial Day</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="programs" class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="reveal max-w-3xl">
+            <p class="mb-3 text-xs font-black uppercase tracking-[0.24em] text-volt">About Us / Programs</p>
+            <h2 class="headline text-6xl leading-[0.88] sm:text-7xl lg:text-8xl">Built for serious transformation.</h2>
+            <p class="mt-5 text-base leading-7 text-zinc-300 sm:text-lg">
+              360 Degree Fitness Club blends progressive lifting, physique-focused programming, conditioning, and practical nutrition guidance for locals ready to train with intent.
+            </p>
+          </div>
+
+          <div class="mt-10 grid gap-4 md:grid-cols-3">
+            <article class="feature-card reveal overflow-hidden rounded-lg border border-white/10 bg-plate">
+              <img
+                class="h-56 w-full object-cover"
+                src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1000&q=82"
+                alt="Athlete performing heavy strength training"
+              />
+              <div class="p-6">
+                <span class="font-display text-4xl text-volt">01</span>
+                <h3 class="mt-3 text-2xl font-black uppercase">Shredded & Lean Muscle</h3>
+                <p class="mt-3 text-sm leading-6 text-zinc-400">
+                  Hypertrophy programs with smart volume, controlled tempo, and progression plans for a sharper physique.
+                </p>
+              </div>
+            </article>
+
+            <article class="feature-card reveal overflow-hidden rounded-lg border border-white/10 bg-plate">
+              <img
+                class="h-56 w-full object-cover"
+                src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=1000&q=82"
+                alt="Gym member training with battle ropes"
+              />
+              <div class="p-6">
+                <span class="font-display text-4xl text-shock">02</span>
+                <h3 class="mt-3 text-2xl font-black uppercase">Power & Strength</h3>
+                <p class="mt-3 text-sm leading-6 text-zinc-400">
+                  Barbell basics, machine work, form coaching, and structured overload for stronger lifts.
+                </p>
+              </div>
+            </article>
+
+            <article class="feature-card reveal overflow-hidden rounded-lg border border-white/10 bg-plate">
+              <img
+                class="h-56 w-full object-cover"
+                src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1000&q=82"
+                alt="High protein vegetarian fitness meal"
+              />
+              <div class="p-6">
+                <span class="font-display text-4xl text-volt">03</span>
+                <h3 class="mt-3 text-2xl font-black uppercase">Customized Diet Plans</h3>
+                <p class="mt-3 text-sm leading-6 text-zinc-400">
+                  Practical guidance around protein targets, creatine, paneer, soya chunks, dal, curd, and everyday Indian meals.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="bmi" class="bg-black px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
+          <div class="reveal">
+            <p class="mb-3 text-xs font-black uppercase tracking-[0.24em] text-shock">Interactive Fitness Check</p>
+            <h2 class="headline text-6xl leading-[0.88] sm:text-7xl">Know your starting point.</h2>
+            <p class="mt-5 text-base leading-7 text-zinc-300">
+              BMI is only a quick signal, not your full story. Use it as a starting number, then let our coaches shape a strength, muscle, and nutrition plan around your goal.
+            </p>
+          </div>
+
+          <div class="bmi-panel reveal rounded-lg border border-white/10 p-5 shadow-2xl sm:p-8">
+            <form class="grid gap-4" data-bmi-form>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <label class="block">
+                  <span class="text-xs font-black uppercase tracking-[0.2em] text-zinc-400">Height (cm)</span>
+                  <input
+                    class="mt-2 w-full rounded-md border border-white/10 bg-black/50 px-4 py-4 text-lg font-bold text-white outline-none ring-0 placeholder:text-zinc-600 focus:border-volt"
+                    type="number"
+                    name="height"
+                    min="80"
+                    max="250"
+                    step="0.1"
+                    placeholder="175"
+                    required
+                  />
+                </label>
+
+                <label class="block">
+                  <span class="text-xs font-black uppercase tracking-[0.2em] text-zinc-400">Weight (kg)</span>
+                  <input
+                    class="mt-2 w-full rounded-md border border-white/10 bg-black/50 px-4 py-4 text-lg font-bold text-white outline-none ring-0 placeholder:text-zinc-600 focus:border-volt"
+                    type="number"
+                    name="weight"
+                    min="20"
+                    max="250"
+                    step="0.1"
+                    placeholder="72"
+                    required
+                  />
+                </label>
+              </div>
+
+              <button class="volt-button rounded-md bg-volt px-6 py-4 text-sm font-black uppercase text-iron" type="submit">
+                Calculate BMI
+              </button>
+            </form>
+
+            <div class="mt-5 hidden rounded-lg border border-volt/35 bg-volt/10 p-5" data-bmi-result aria-live="polite">
+              <p class="text-sm font-bold uppercase text-zinc-300">Your BMI Result</p>
+              <p class="mt-2 font-display text-5xl text-volt" data-bmi-value>--</p>
+              <p class="mt-2 text-sm leading-6 text-zinc-300" data-bmi-message></p>
+              <a
+                href="https://api.whatsapp.com/send?phone=919876543210&text=Hi%20360%20Degree%20Fitness%2C%20I%20checked%20my%20BMI%20and%20want%20a%20custom%20transformation%20plan.&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noreferrer"
+                data-whatsapp
+                data-message="Hi 360 Degree Fitness, I checked my BMI and want a custom transformation plan."
+                class="volt-button mt-5 inline-flex rounded-md bg-volt px-5 py-3 text-sm font-black uppercase text-iron"
+              >
+                Get Your Custom Plan on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="reveal flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <div class="max-w-2xl">
+              <p class="mb-3 text-xs font-black uppercase tracking-[0.24em] text-volt">Trainers / Gallery</p>
+              <h2 class="headline text-6xl leading-[0.88] sm:text-7xl">Train where energy stays high.</h2>
+            </div>
+            <p class="max-w-md text-sm leading-6 text-zinc-400">
+              High-performance equipment zones, motivating coaching, and a focused floor for members chasing visible progress.
+            </p>
+          </div>
+
+          <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <figure class="gallery-tile reveal overflow-hidden rounded-lg border border-white/10 bg-plate sm:col-span-2">
+              <img
+                class="h-72 w-full object-cover sm:h-96"
+                src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1300&q=82"
+                alt="Modern gym equipment and cardio area"
+              />
+              <figcaption class="p-4 text-sm font-black uppercase text-zinc-300">Strength and cardio floor</figcaption>
+            </figure>
+
+            <figure class="gallery-tile reveal overflow-hidden rounded-lg border border-white/10 bg-plate">
+              <img
+                class="h-72 w-full object-cover sm:h-96"
+                src="https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=900&q=82"
+                alt="Personal trainer coaching a member"
+              />
+              <figcaption class="p-4 text-sm font-black uppercase text-zinc-300">Personal coaching</figcaption>
+            </figure>
+
+            <figure class="gallery-tile reveal overflow-hidden rounded-lg border border-white/10 bg-plate">
+              <img
+                class="h-72 w-full object-cover sm:h-96"
+                src="https://images.unsplash.com/photo-1534367610401-9f5ed68180aa?auto=format&fit=crop&w=900&q=82"
+                alt="Athlete training with dumbbells"
+              />
+              <figcaption class="p-4 text-sm font-black uppercase text-zinc-300">Hypertrophy zone</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="bg-plate px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="reveal max-w-3xl">
+            <p class="mb-3 text-xs font-black uppercase tracking-[0.24em] text-shock">Membership Plans</p>
+            <h2 class="headline text-6xl leading-[0.88] sm:text-7xl">Choose your commitment.</h2>
+            <p class="mt-5 text-base leading-7 text-zinc-300">Simple plans for consistent training. Pricing can be adjusted instantly for current offers.</p>
+          </div>
+
+          <div class="mt-10 grid gap-4 lg:grid-cols-3">
+            <article class="price-card reveal rounded-lg border border-white/10 bg-iron p-6">
+              <p class="text-sm font-black uppercase tracking-[0.22em] text-zinc-500">Starter</p>
+              <h3 class="mt-3 text-3xl font-black uppercase">Monthly</h3>
+              <p class="mt-5"><span class="font-display text-6xl text-white">₹1,499</span><span class="text-zinc-500"> / mo</span></p>
+              <ul class="mt-6 grid gap-3 text-sm font-semibold text-zinc-300">
+                <li>Strength and cardio access</li>
+                <li>Basic workout guidance</li>
+                <li>Flexible renewal</li>
+              </ul>
+              <a
+                class="volt-button mt-8 inline-flex w-full justify-center rounded-md bg-volt px-5 py-4 text-sm font-black uppercase text-iron"
+                href="https://api.whatsapp.com/send?phone=919876543210&text=Hi%20360%20Degree%20Fitness%2C%20I%20want%20to%20start%20the%20Monthly%20membership%20plan.&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noreferrer"
+                data-whatsapp
+                data-message="Hi 360 Degree Fitness, I want to start the Monthly membership plan."
+              >
+                Start Monthly
+              </a>
+            </article>
+
+            <article class="price-card reveal relative rounded-lg border border-volt/55 bg-black p-6 shadow-neon">
+              <span class="absolute right-4 top-4 rounded-md bg-volt px-3 py-1 text-xs font-black uppercase text-iron">Popular</span>
+              <p class="text-sm font-black uppercase tracking-[0.22em] text-volt">Transformation</p>
+              <h3 class="mt-3 text-3xl font-black uppercase">Quarterly</h3>
+              <p class="mt-5"><span class="font-display text-6xl text-volt">₹3,999</span><span class="text-zinc-500"> / 3 mo</span></p>
+              <ul class="mt-6 grid gap-3 text-sm font-semibold text-zinc-300">
+                <li>Progressive training split</li>
+                <li>Nutrition guidance check-ins</li>
+                <li>Body recomposition focus</li>
+              </ul>
+              <a
+                class="volt-button mt-8 inline-flex w-full justify-center rounded-md bg-volt px-5 py-4 text-sm font-black uppercase text-iron"
+                href="https://api.whatsapp.com/send?phone=919876543210&text=Hi%20360%20Degree%20Fitness%2C%20I%20want%20to%20join%20the%20Quarterly%20transformation%20plan.&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noreferrer"
+                data-whatsapp
+                data-message="Hi 360 Degree Fitness, I want to join the Quarterly transformation plan."
+              >
+                Go Quarterly
+              </a>
+            </article>
+
+            <article class="price-card reveal rounded-lg border border-white/10 bg-iron p-6">
+              <p class="text-sm font-black uppercase tracking-[0.22em] text-zinc-500">Elite</p>
+              <h3 class="mt-3 text-3xl font-black uppercase">Yearly</h3>
+              <p class="mt-5"><span class="font-display text-6xl text-white">₹13,999</span><span class="text-zinc-500"> / yr</span></p>
+              <ul class="mt-6 grid gap-3 text-sm font-semibold text-zinc-300">
+                <li>Best value membership</li>
+                <li>Long-term strength planning</li>
+                <li>Priority transformation support</li>
+              </ul>
+              <a
+                class="volt-button mt-8 inline-flex w-full justify-center rounded-md bg-volt px-5 py-4 text-sm font-black uppercase text-iron"
+                href="https://api.whatsapp.com/send?phone=919876543210&text=Hi%20360%20Degree%20Fitness%2C%20I%20want%20to%20join%20the%20Yearly%20membership%20plan.&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noreferrer"
+                data-whatsapp
+                data-message="Hi 360 Degree Fitness, I want to join the Yearly membership plan."
+              >
+                Train All Year
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.92fr_1.08fr]">
+          <div class="reveal">
+            <p class="mb-3 text-xs font-black uppercase tracking-[0.24em] text-volt">Contact & Location</p>
+            <h2 class="headline text-6xl leading-[0.88] sm:text-7xl">Pull up. Train hard.</h2>
+
+            <div class="mt-8 grid gap-4">
+              <div class="rounded-lg border border-white/10 bg-plate p-5">
+                <p class="text-xs font-black uppercase tracking-[0.2em] text-zinc-500">Address</p>
+                <p class="mt-2 text-lg font-bold">360 Degree Fitness Club, Kanakpura, Jhotwara, Jaipur, Rajasthan</p>
+              </div>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div class="rounded-lg border border-white/10 bg-plate p-5">
+                  <p class="text-xs font-black uppercase tracking-[0.2em] text-zinc-500">Call / WhatsApp</p>
+                  <a class="mt-2 block text-lg font-bold text-white hover:text-volt" href="tel:+919876543210" data-phone-link>+91 98765 43210</a>
+                </div>
+                <div class="rounded-lg border border-white/10 bg-plate p-5">
+                  <p class="text-xs font-black uppercase tracking-[0.2em] text-zinc-500">Gmail</p>
+                  <a class="mt-2 block break-words text-lg font-bold text-white hover:text-volt" href="mailto:360degreefitnessclub@gmail.com" data-email-link>
+                    360degreefitnessclub@gmail.com
+                  </a>
+                </div>
+              </div>
+              <div class="rounded-lg border border-white/10 bg-plate p-5">
+                <p class="text-xs font-black uppercase tracking-[0.2em] text-zinc-500">Operating Hours</p>
+                <p class="mt-2 text-lg font-bold">Monday to Sunday: 5:00 AM - 11:00 PM</p>
+              </div>
+            </div>
+
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                class="volt-button inline-flex justify-center rounded-md bg-volt px-6 py-4 text-sm font-black uppercase text-iron"
+                href="https://api.whatsapp.com/send?phone=919876543210&text=Hi%20360%20Degree%20Fitness%2C%20I%20want%20to%20claim%20my%201-Day%20Free%20Trial%21&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noreferrer"
+                data-whatsapp
+                data-message="Hi 360 Degree Fitness, I want to claim my 1-Day Free Trial!"
+              >
+                Claim 1-Day Free Trial
+              </a>
+              <a
+                class="dark-button inline-flex justify-center rounded-md border border-white/15 bg-white/8 px-6 py-4 text-sm font-black uppercase text-white hover:border-shock/70 hover:shadow-blueglow"
+                href="https://www.google.com/maps/dir/?api=1&destination=360%20Degree%20Fitness%20Club%2C%20Kanakpura%2C%20Jhotwara%2C%20Jaipur%2C%20Rajasthan"
+                data-directions
+              >
+                Get Directions
+              </a>
+            </div>
+          </div>
+
+          <div class="reveal overflow-hidden rounded-lg border border-white/10 bg-plate p-2 shadow-2xl">
+            <iframe
+              class="h-[380px] w-full rounded-md grayscale md:h-[520px]"
+              title="Map to Kanakpura, Jhotwara, Jaipur"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Kanakpura%20Jhotwara%20Jaipur&output=embed"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 bg-black px-4 py-8 sm:px-6 lg:px-8">
+      <div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
+        <p><strong class="text-white">360 Degree Fitness Club</strong> - Kanakpura, Jhotwara, Jaipur</p>
+        <div class="flex flex-wrap gap-4">
+          <a class="font-bold uppercase text-volt" href="tel:+919876543210" data-phone-link>Call</a>
+          <a class="font-bold uppercase text-volt" href="mailto:360degreefitnessclub@gmail.com" data-email-link>Email</a>
+          <a class="font-bold uppercase text-volt" href="#home">Back to top</a>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      class="volt-button fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-md bg-volt text-iron shadow-neon"
+      href="https://api.whatsapp.com/send?phone=919876543210&text=Hi%20360%20Degree%20Fitness%2C%20I%20want%20to%20claim%20my%201-Day%20Free%20Trial%21&type=phone_number&app_absent=0"
+      target="_blank"
+      rel="noreferrer"
+      data-whatsapp
+      data-message="Hi 360 Degree Fitness, I want to claim my 1-Day Free Trial!"
+      aria-label="Chat with 360 Degree Fitness Club on WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" class="h-7 w-7" aria-hidden="true" fill="currentColor">
+        <path
+          d="M20.52 3.48A11.87 11.87 0 0 0 12.06 0C5.49 0 .15 5.34.15 11.91c0 2.1.55 4.16 1.6 5.97L.05 24l6.27-1.65a11.9 11.9 0 0 0 5.74 1.46h.01c6.57 0 11.91-5.34 11.91-11.91 0-3.18-1.24-6.17-3.46-8.42ZM12.07 21.8h-.01a9.88 9.88 0 0 1-5.04-1.38l-.36-.21-3.72.98.99-3.63-.24-.37a9.85 9.85 0 0 1-1.51-5.28c0-5.46 4.44-9.9 9.9-9.9 2.65 0 5.13 1.03 7 2.9a9.83 9.83 0 0 1 2.9 7c0 5.45-4.44 9.89-9.91 9.89Zm5.43-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"
+        />
+      </svg>
+    </a>
+
+    <script>
+      // Hypothetical contact details. Replace with official business details when available.
+      const gymPhoneDisplay = "+91 98765 43210";
+      const gymPhoneHref = "+919876543210";
+      const gymEmail = "360degreefitnessclub@gmail.com";
+      const whatsappNumber = "919876543210";
+
+      document.querySelectorAll("[data-whatsapp]").forEach((link) => {
+        const message = link.dataset.message || "Hi 360 Degree Fitness, I want to claim my 1-Day Free Trial!";
+        const encodedMessage = encodeURIComponent(message);
+        const appUrl = `whatsapp://send?phone=${whatsappNumber}&text=${encodedMessage}`;
+        const webUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}&type=phone_number&app_absent=0`;
+
+        link.href = webUrl;
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          window.location.href = appUrl;
+
+          window.setTimeout(() => {
+            window.open(webUrl, "_blank", "noopener,noreferrer");
+          }, 700);
+        });
+      });
+
+      document.querySelectorAll("[data-phone-link]").forEach((link) => {
+        link.href = `tel:${gymPhoneHref}`;
+        if (!link.textContent.trim().includes("Call")) link.textContent = gymPhoneDisplay;
+      });
+
+      document.querySelectorAll("[data-email-link]").forEach((link) => {
+        link.href = `mailto:${gymEmail}?subject=${encodeURIComponent("Membership enquiry for 360 Degree Fitness Club")}`;
+        if (!link.textContent.trim().includes("Email")) link.textContent = gymEmail;
+      });
+
+      const menuButton = document.querySelector("[data-menu-button]");
+      const mobileMenu = document.querySelector("[data-mobile-menu]");
+      const menuLines = document.querySelectorAll("[data-menu-line]");
+
+      menuButton.addEventListener("click", () => {
+        const isOpen = mobileMenu.classList.toggle("hidden") === false;
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuLines[0].classList.toggle("translate-y-[7px]", isOpen);
+        menuLines[0].classList.toggle("rotate-45", isOpen);
+        menuLines[1].classList.toggle("-translate-y-[7px]", isOpen);
+        menuLines[1].classList.toggle("-rotate-45", isOpen);
+      });
+
+      mobileMenu.addEventListener("click", (event) => {
+        if (!event.target.closest("a")) return;
+        mobileMenu.classList.add("hidden");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuLines.forEach((line) => {
+          line.classList.remove("translate-y-[7px]", "-translate-y-[7px]", "rotate-45", "-rotate-45");
+        });
+      });
+
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("in-view");
+            revealObserver.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.14 }
+      );
+
+      document.querySelectorAll(".reveal").forEach((item, index) => {
+        item.style.transitionDelay = `${Math.min(index % 3, 2) * 80}ms`;
+        revealObserver.observe(item);
+      });
+
+      const counterObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const counter = entry.target;
+            const target = Number(counter.dataset.count || 0);
+            const started = performance.now();
+
+            const tick = (time) => {
+              const progress = Math.min((time - started) / 1100, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              counter.textContent = Math.round(target * eased).toLocaleString("en-IN");
+              if (progress < 1) requestAnimationFrame(tick);
+            };
+
+            requestAnimationFrame(tick);
+            counterObserver.unobserve(counter);
+          });
+        },
+        { threshold: 0.6 }
+      );
+
+      document.querySelectorAll("[data-count]").forEach((counter) => counterObserver.observe(counter));
+
+      const navLinks = document.querySelectorAll(".nav-link");
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            navLinks.forEach((link) => {
+              link.classList.toggle("active-link", link.getAttribute("href") === `#${entry.target.id}`);
+            });
+          });
+        },
+        { rootMargin: "-42% 0px -52% 0px" }
+      );
+
+      document.querySelectorAll("main section[id]").forEach((section) => sectionObserver.observe(section));
+
+      const bmiForm = document.querySelector("[data-bmi-form]");
+      const bmiResult = document.querySelector("[data-bmi-result]");
+      const bmiValue = document.querySelector("[data-bmi-value]");
+      const bmiMessage = document.querySelector("[data-bmi-message]");
+
+      bmiForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const data = new FormData(bmiForm);
+        const heightCm = Number(data.get("height"));
+        const weightKg = Number(data.get("weight"));
+
+        if (!heightCm || !weightKg || heightCm <= 0 || weightKg <= 0) {
+          bmiResult.classList.remove("hidden");
+          bmiValue.textContent = "--";
+          bmiMessage.textContent = "Enter a valid height and weight to calculate your BMI.";
+          return;
+        }
+
+        const heightM = heightCm / 100;
+        const bmi = weightKg / (heightM * heightM);
+        let category = "Healthy range";
+        let coaching = "Great base. A structured muscle and strength plan can help you push body composition further.";
+
+        if (bmi < 18.5) {
+          category = "Underweight range";
+          coaching = "A calorie-surplus strength plan with high-protein vegetarian meals can help build lean mass.";
+        } else if (bmi >= 25 && bmi < 30) {
+          category = "Overweight range";
+          coaching = "A recomposition plan with lifting, cardio, and protein targets can help reduce fat while preserving muscle.";
+        } else if (bmi >= 30) {
+          category = "High BMI range";
+          coaching = "A coach-guided routine with gradual conditioning and nutrition tracking is the best starting move.";
+        }
+
+        bmiResult.classList.remove("hidden");
+        bmiValue.textContent = `${bmi.toFixed(1)} BMI`;
+        bmiMessage.textContent = `${category}. ${coaching}`;
+      });
+    </script>
+  </body>
+</html>
